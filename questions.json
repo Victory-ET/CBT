@@ -1,0 +1,27 @@
+[
+    {
+        "question": "Inside which HTML element do we put the javascript",
+        "choice1": "<script>",
+        "choice2": "<javascript>",
+        "choice3": "<js>",
+        "choice4": "<scripting>",
+        "answer":1
+    },
+    {
+        "question": "what is 2*2?",
+        "choice1": "1",
+        "choice2": "22",
+        "choice3": "4",
+        "choice4": "four",
+        "answer":3
+
+    },
+    {
+        "question": "what is the square of 12?",
+        "choice1": "12.dotproduct.12",
+       " choice2": "14.4",
+        "choice3": "14four",
+        "choice4": "144",
+        "answer":4
+    }
+]

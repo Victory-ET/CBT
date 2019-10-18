@@ -1,3 +1,4 @@
+//creating our const variables
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progressText");
@@ -10,38 +11,51 @@ let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+//question arrays
 
-let questions = [
-    {
-        question: "Inside which HTML element do we put the javascript",
-        choice1: "<script>",
-        choice2: "<javascript>",
-        choice3: "<js>",
-        choice4: "<scripting>",
-        answer:1
-    },
-    {
-        question: "what is 2*2?",
-        choice1: "1",
-        choice2: "22",
-        choice3: "4",
-        choice4: "four",
-        answer:3
 
-    },
-    {
-        question: "what is the square of 12?",
-        choice1: "12.dotproduct.12",
-        choice2: "14.4",
-        choice3: "14four",
-        choice4: "144",
-        answer:4
-    }
-];
-//constants
+let questions = [];
+//we will try to fetch it from a database online later
+//questions transferred to json file
+//using fetch api to fetch the questions
+//.then are special stuffs do what they look like
+//changing the  fetch from questions.json to a online database
+//opentdb.com
+//it takes time for questions to load so we will create a loader to cover that up
+fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple')
+.then(res =>{
+    console.log(res);
+    return res.json();
+}).then (loadedQuestions =>{
+    console.log(loadedQuestions.results);
+   questions = loadedQuestions.results.map( loadedQuestion => {
+        const formattedQuestion ={
+            question: loadedQuestion.question
+        };
+
+        const answerChoices =[...loadedQuestion.incorrect_answers];
+        formattedQuestion.answer =Math.floor(Math.random()*3)+1;
+        answerChoices.splice(formattedQuestion.answer -1, 0, loadedQuestion.correct_answer);
+        answerChoices.forEach((choice, index)=>{
+        formattedQuestion["choice"+(index+1)] = choice;
+        })
+        return formattedQuestion;
+    });
+    //questions = loadedQuestions;
+    startGame();
+})
+.catch(err =>{
+    console.error(err);
+    //anyways incase of error on loading questions
+    //you might want to direct the user to home page
+    //back this is the place 
+});
+
+//constants 
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 10;
 
+//rendering of questions
 startGame = () => {
     questionCounter = 0;
     score = 0;
@@ -49,9 +63,12 @@ startGame = () => {
     getNewQuestion();
 };
 
+//function to goto end .html if there are no more questions to render
 getNewQuestion = () => {
 
     if(availableQuestions.length ==0 || questionCounter > MAX_QUESTIONS){
+        //trying to save high score in a local storage
+        localStorage.setItem('mostRecentScore', score);
         //go to the end page
         return window.location.assign("./end.html");
     }
@@ -62,7 +79,7 @@ getNewQuestion = () => {
     progressText.innerText=`Question ${questionCounter}/${MAX_QUESTIONS}`;
     //to update the progress bar
     progressBarfull.style.width = `${(questionCounter/ MAX_QUESTIONS) * 100}%`;
-    console.log((questionCounter / MAX_QUESTIONS) * 100);
+    //console.log((questionCounter / MAX_QUESTIONS) * 100);
 
     const questionIndex = Math.floor(Math.random()* availableQuestions.length );
     currentQuestion = availableQuestions[questionIndex];
@@ -74,6 +91,7 @@ getNewQuestion = () => {
     });
 
     availableQuestions.splice(questionIndex, 1);
+    //splice means it will take only one value and cut off the rest
     acceptingAnswers = true;
 };
 
@@ -89,10 +107,12 @@ choices.forEach(choice => {
         const classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
         //console.log(classToApply);
 
+        //on correct answer to increment score
         if(classToApply == 'correct') {
             incrementScore(CORRECT_BONUS);
         }
-
+        //adding and removing the css class for correct and incorrect
+        //answers
         selectedChoice.parentElement.classList.add(classToApply);
 
         setTimeout( () => {
@@ -104,11 +124,12 @@ choices.forEach(choice => {
     });
 });
 
+//score increment
 incrementScore = num => {
     score +=num;
     scoreText.innerText = score;
 }
-
-startGame();
+// start game was formally here but i want it to be called
+//when the questions have been loaded from the json file
 
    
