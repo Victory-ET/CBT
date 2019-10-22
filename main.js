@@ -4,7 +4,8 @@ const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progressText");
 const scoreText = document.getElementById("score");
 const progressBarfull = document.getElementById("progressBarfull");
-
+const loader = document.getElementById("loader");
+const game = document.getElementById("game");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -22,7 +23,7 @@ let questions = [];
 //changing the  fetch from questions.json to a online database
 //opentdb.com
 //it takes time for questions to load so we will create a loader to cover that up
-fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple')
+fetch('https://opentdb.com/api.php?amount=10&category=18&type=multiple')
 .then(res =>{
     console.log(res);
     return res.json();
@@ -42,6 +43,8 @@ fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=m
         return formattedQuestion;
     });
     //questions = loadedQuestions;
+    
+
     startGame();
 })
 .catch(err =>{
@@ -61,11 +64,15 @@ startGame = () => {
     score = 0;
     availableQuestions = [... questions];
     getNewQuestion();
+    //now adding a loader in between questions
+    game.classList.remove("hidden");
+    loader.classList.add("hidden");
+
 };
 
 //function to goto end .html if there are no more questions to render
 getNewQuestion = () => {
-
+    
     if(availableQuestions.length ==0 || questionCounter > MAX_QUESTIONS){
         //trying to save high score in a local storage
         localStorage.setItem('mostRecentScore', score);

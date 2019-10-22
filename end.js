@@ -31,7 +31,7 @@ saveHighScore = e=> {
    //trying to save the high score
    //N.B i used json scripting
    const score = {
-      score: Math.floor(Math.random()*100),
+      score: mostRecentScore,
       name: username.value
    };
    //to push the score to our array
