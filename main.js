@@ -83,18 +83,18 @@ getNewQuestion = () => {
     questionCounter++;
     //to update score and question counter constructs
     //"Question " + questionCounter + "/" + MAX_QUESTIONS  <--or
-    progressText.innerText=`Question ${questionCounter}/${MAX_QUESTIONS}`;
+    progressText.innerHTML=`Question ${questionCounter}/${MAX_QUESTIONS}`;
     //to update the progress bar
     progressBarfull.style.width = `${(questionCounter/ MAX_QUESTIONS) * 100}%`;
     //console.log((questionCounter / MAX_QUESTIONS) * 100);
 
     const questionIndex = Math.floor(Math.random()* availableQuestions.length );
     currentQuestion = availableQuestions[questionIndex];
-    question.innerText = currentQuestion.question;
+    question.innerHTML = currentQuestion.question;
 
     choices.forEach( choice => {
         const number = choice.dataset['number'];
-        choice.innerText = currentQuestion['choice' + number];
+        choice.innerHTML = currentQuestion['choice' + number];
     });
 
     availableQuestions.splice(questionIndex, 1);
