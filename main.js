@@ -97,7 +97,7 @@ getNewQuestion = () => {
         choice.innerHTML = currentQuestion['choice' + number];
     });
 
-    availableQuestions.splice(questionIndex, 2);
+    availableQuestions.splice(questionIndex, 1);
     //splice means it will take only one value and cut off the rest
     acceptingAnswers = true;
 };
