@@ -18,6 +18,8 @@
 }
 
 #highScoresList{
+    height:150px;
+    width:150px;
     padding-left:10px;
     font-weight:bold;
     background:#FFF68F;
