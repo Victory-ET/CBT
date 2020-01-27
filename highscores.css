@@ -13,7 +13,12 @@
     transform: scale(1.025);
 }
 
-#finalscore {
+#finalScores {
     background:#fff;
-    margin-left:10px;
+}
+
+#highScoresList{
+    padding-left:10px;
+    font-weight:bold;
+    background:#FFF68F;
 }
