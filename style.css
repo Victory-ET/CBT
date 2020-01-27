@@ -90,6 +90,7 @@ h3{
     text-decoration: none;
     color: #56a5eb;
     background-color: white;
+    transform: translateX(28px);
 }
 
 .btn :hover {
