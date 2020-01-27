@@ -15,12 +15,13 @@
 
 #finalScores {
     background:#fff;
+    height:500px;
+    width:500px;
 }
 
 #highScoresList{
-    height:150px;
-    width:150px;
+    text-decoration:underline;
     padding-left:10px;
     font-weight:bold;
-    background:#FFF68F;
+    background:#FFFCDC;
 }
