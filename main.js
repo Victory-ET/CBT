@@ -7,6 +7,7 @@ const progressBarfull = document.getElementById("progressBarfull");
 const loader = document.getElementById("loader");
 const game = document.getElementById("game");
 
+
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;

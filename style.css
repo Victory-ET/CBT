@@ -144,3 +144,132 @@ input{
 input::placeholder{
     color: #aaa;
 }
+.colorswitch{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+     transition: 0.5s ease;
+     text-align:left;
+    color: white;
+}
+
+.colorswitch *{
+    transition: all 0.72s ease-in;
+}
+
+.colorswitch p#themes-btn{
+    color: #333;
+    background: white;
+    padding: 23px 15px;
+    box-shadow: 3px 3px 0 -2px rgba(0,0,0,0.2);
+    border-radius: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.colorswitch p#themes-btn:hover{
+    box-shadow: 4px 4px 10px -3px rgba(0,0,0,0.56);
+}
+
+.colorswitch .colors {
+    float: left;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 0 0 10px 0;
+    margin-left: -300px;
+}
+
+.colorswitch .active{
+    margin-left:0;
+}
+
+
+.colorswitch .colors h3 {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 7px;
+}
+
+.colorswitch #themes-btn{
+    float: right;
+    cursor: pointer;
+}
+
+.colorswitch ul li {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    border-radius: 7.8px;
+    margin-right: 2px;
+}
+
+.colorswitch ul li:hover{
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+}
+
+.colorswitch ul.theme-colors li:nth-child(1),
+.colorswitch ul.text-colors li:nth-child(1){
+    background: #000;
+    color: #000;
+}
+
+.colorswitch ul.theme-colors li:nth-child(2),
+.colorswitch ul.text-colors li:nth-child(2){
+    background: white;
+    color: white;
+}
+
+.colorswitch ul.theme-colors li:nth-child(3),
+.colorswitch ul.text-colors li:nth-child(3){
+    background: #0084d6;
+    color: #0084d6;
+}
+
+.colorswitch ul.theme-colors li:nth-child(4),
+.colorswitch ul.text-colors li:nth-child(4){
+    background: #f44336;
+    color: #f44336;
+}
+
+.colorswitch ul.theme-colors li:nth-child(5),
+.colorswitch ul.text-colors li:nth-child(5){
+    background: #7b1fa2;
+    color: #7b1fa2;
+}
+
+.colorswitch ul.theme-colors li:nth-child(6),
+.colorswitch ul.text-colors li:nth-child(6){
+    background: #00acc1;
+    color: #00acc1;
+}
+
+.colorswitch ul.theme-colors li:nth-child(7),
+.colorswitch ul.text-colors li:nth-child(7){
+    background: #43a047;
+    color: #43a047;
+}
+
+.colorswitch ul.theme-colors li:nth-child(8),
+.colorswitch ul.text-colors li:nth-child(8){
+    background: #f57c00;
+    color: #f57c00;
+}
+
+.colorswitch ul.theme-colors li:nth-child(9),
+.colorswitch ul.text-colors li:nth-child(9){
+    background: #455a64;
+    color: #455a64;
+}
+
+#themes-btn{
+    border-top-right-radius: 25px !important;
+    border-bottom-right-radius: 25px !important;
+    padding: 15px 35px !important;
+}
+
+
+
+
+
