@@ -151,9 +151,14 @@ window.addEventListener('load',function(){
     newbod=JSON.parse(sessionStorage.getItem('bod'));
     newcol=JSON.parse(sessionStorage.getItem('col'));
     document.body.style.background=newbod;
-    h1.style.color=newcol;
+    
     for(i = 0; i < a.length; i++){
         a[i].style.color=newcol;
+       
+    }
+    
+    for(i = 0; i < h1.length; i++){
+        h1[i].style.color=newcol;
        
     }
 
