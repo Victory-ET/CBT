@@ -6,7 +6,7 @@ const scoreText = document.getElementById("score");
 const progressBarfull = document.getElementById("progressBarfull");
 const loader = document.getElementById("loader");
 const game = document.getElementById("game");
-const h1 = document.querySelector("h1");
+const h1 = document.querySelectorAll("h1");
 const p = document.querySelectorAll("p");
 const a = document.querySelectorAll("a");
 
