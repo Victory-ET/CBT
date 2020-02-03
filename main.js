@@ -6,7 +6,13 @@ const scoreText = document.getElementById("score");
 const progressBarfull = document.getElementById("progressBarfull");
 const loader = document.getElementById("loader");
 const game = document.getElementById("game");
+const h1 = document.querySelector("h1");
+const p = document.querySelectorAll("p");
+const a = document.querySelectorAll("a");
 
+//for new body and text color
+var newbod, newcol;
+var text;
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -140,4 +146,28 @@ incrementScore = num => {
 // start game was formally here but i want it to be called
 //when the questions have been loaded from the json file
 
-   
+ //color chaNGE FUNCTION  
+window.addEventListener('load',function(){
+    newbod=JSON.parse(sessionStorage.getItem('bod'));
+    newcol=JSON.parse(sessionStorage.getItem('col'));
+    document.body.style.background=newbod;
+    h1.style.color=newcol;
+    for(i = 0; i < a.length; i++){
+        a[i].style.color=newcol;
+       
+    }
+
+    for(i = 0; i < p.length; i++){
+        p[i].style.color=newcol;
+       
+    }
+    /**text=[h1,p,a];
+    function helper(arr){
+        for(i in arr){
+            (arr[i]).style.color=newcol;
+        }
+    };
+    helper(text);
+    **/
+
+});
