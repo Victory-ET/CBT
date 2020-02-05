@@ -3,7 +3,7 @@
 const username = document.getElementById('username');
 const saveScoreBtn = document.getElementById('saveScoreBtn');
 const finalScore = document.getElementById('finalScore');
-const mostRecentScore = localStorage.getItem('mostRecentScore');
+const mostRecentScore = sessionStorage.getItem('mostRecentScore');
 
 //local storage stores data as strings so to av an array there
 //we need to use json stringfy for numbers
@@ -12,7 +12,7 @@ const mostRecentScore = localStorage.getItem('mostRecentScore');
 //we either get whats in local storage or we show an empty array
 //so add ....||[]
 
-const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+const highScores = JSON.parse(sessionStorage.getItem('highScores')) || [];
 
 const Max_HIGH_SCORE = 5;
 
