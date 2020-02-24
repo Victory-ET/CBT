@@ -108,6 +108,8 @@
 @media screen and (max-width: 600px) {
     h1{
         font-size: 2rem;
+         /*added*/
+       
     }
     #count{
         position: absolute;
@@ -121,14 +123,38 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        /*added*/
+        height: 70px;
+        margin-bottom: 10px;
+
     }
     #count h1 {
         height: 14px;
         transform:translateY(70%);
+        /*added*/
+         position: relative;
+        top: 3px;
     }
     .counter{
         font-size:18px;
         font-weight: bolder;
+        /*added*/
+        position: relative;
+        top: -15px;
+    }
+    .tbn{
+         /*added*/
+        background-color: #fff;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 0.8rem 1.7rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #dc3545;
+        position: relative;
+        top: -15px;
     }
 }
 
