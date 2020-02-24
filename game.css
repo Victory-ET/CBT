@@ -141,7 +141,7 @@
         font-weight: bolder;
         /*added*/
         position: relative;
-        top: -15px;
+        top: -18px;
     }
     .tbtn{
          /*added*/
@@ -155,7 +155,7 @@
         font-weight: 700;
         color: #dc3545;
         position: relative;
-        margin-top: -20px;
+        top: -20px;
     }
 }
 
