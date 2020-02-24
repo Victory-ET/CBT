@@ -103,6 +103,7 @@
     font-size: 1.2rem;
     font-weight: 700;
     color: #dc3545;
+    background: transparent;
 }
 
 @media screen and (max-width: 600px) {
